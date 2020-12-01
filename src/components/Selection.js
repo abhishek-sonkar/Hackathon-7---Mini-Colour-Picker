@@ -1,20 +1,12 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 
-class Selection extends Component {
-    constructor(props) {
-        super(props);
-            this.state = {
-                background:'',
-            }
-    }
-    render () {
-        return (
-            <div className="fix-box" onClick={props.applyColor}>
-                <h2 className="subheading">Selection</h2>
-            </div>
-        );
-    }
-    
+export default function Selection(props) {
+    const [tempBackground, changeBackground] = useState({ background: "" });
+    const { applyColor } = props;
+
+    return (
+        <div className='fix-box' style={tempBackground} onClick={() => applyColor(changeBackground)}>
+        <h2 className='subheading'>Selection</h2>
+        </div>
+    );
 }
-
-export default Selection;
